@@ -3,7 +3,10 @@
 {{ if eq .chezmoi.os "linux" -}}
 sudo apt update
 sudo apt upgrade -y
-sudo apt install ripgrep curl git zsh libfuse2
+sudo apt install -y ripgrep curl git zsh libfuse2 fzf
+
+#install zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 #install lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -17,9 +20,10 @@ chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
 {{ else if eq .chezmoi.os "darwin" -}}
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install ripgrep curl git zsh lazygit neovim
+brew install ripgrep curl git zsh zoxide fzf lazygit neovim
 {{ end -}}
 
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 chsh -s $(which zsh)
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
