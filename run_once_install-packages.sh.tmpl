@@ -1,12 +1,23 @@
 #!/bin/sh
 
 {{ if eq .chezmoi.os "linux" -}}
+sudo apt update
+sudo apt uggrade -y
 sudo apt install ripgrep curl git zsh libfuse2
+
+#install lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+
+#install nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
-mkdir nvim.appimage ~/.local/bin/nvim
+sudo mv nvim.appimage /usr/local/bin/nvim
 {{ else if eq .chezmoi.os "darwin" -}}
-brew install ripgrep curl git zsh neovim
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install ripgrep curl git zsh lazygit neovim
 {{ end -}}
 
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
