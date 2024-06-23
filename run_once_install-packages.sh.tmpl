@@ -3,7 +3,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y ripgrep curl git zsh libfuse2 fzf
+sudo apt install -y build-essential ripgrep curl git zsh libfuse2 fzf
 
 #install zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
@@ -27,3 +27,5 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 chsh -s $(which zsh)
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+rm ~/.zshrc
+mv ~/.zshrc.pre-oh-my-zsh
