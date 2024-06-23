@@ -811,6 +811,8 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      -- Setup mini.files explorer
       local mini_files = require 'mini.files'
       mini_files.setup {
         windows = {
@@ -825,6 +827,12 @@ require('lazy').setup({
       end
 
       vim.keymap.set('n', '-', mini_files_toggle, { desc = 'Open file explorer' })
+
+      -- Setup mini.tabline
+      require('mini.tabline').setup()
+      vim.keymap.set('n', '<leader>tn', ':bnext<cr>', { desc = 'Next tab' })
+      vim.keymap.set('n', '<leader>tp', ':bprevious<cr>', { desc = 'Next tab' })
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
