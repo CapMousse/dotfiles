@@ -18,9 +18,13 @@ sudo install lazygit /usr/local/bin
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
+
+#install ohmyposh
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin/
 {{ else if eq .chezmoi.os "darwin" -}}
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install ripgrep curl git zsh tmux zoxide fzf lazygit neovim
+brew install jandedobbeleer/oh-my-posh/oh-my-posh
 {{ end -}}
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
