@@ -778,16 +778,29 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
+    config = function()
+      local catppuccin = require 'catppuccin'
+
+      vim.o.termguicolors = true
+
+      catppuccin.setup {
+        integrations = {
+          cmp = true,
+          treesitter = true,
+          mini = {
+            enabled = true,
+            indentscope_color = '',
+          },
+        },
+      }
+    end,
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      vim.cmd.colorscheme 'catppuccin-macchiato'
     end,
   },
 
@@ -872,15 +885,22 @@ require('lazy').setup({
     },
   },
   {
-    'akinsho/toggleterm.nvim',
-    config = function()
-      require('toggleterm').setup()
-
-      vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<cr>', { desc = 'Open floating terminal' })
-      vim.keymap.set('n', '<leader>tb', ':ToggleTerm<cr>', { desc = 'Open terminal' })
-    end,
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+    },
+    keys = {
+      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+    },
   },
-
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
