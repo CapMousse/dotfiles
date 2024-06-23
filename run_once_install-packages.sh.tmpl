@@ -2,7 +2,7 @@
 
 {{ if eq .chezmoi.os "linux" -}}
 sudo apt update
-sudo apt uggrade -y
+sudo apt upgrade -y
 sudo apt install ripgrep curl git zsh libfuse2
 
 #install lazygit
@@ -21,3 +21,5 @@ brew install ripgrep curl git zsh lazygit neovim
 {{ end -}}
 
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s $(which zsh)
