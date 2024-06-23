@@ -830,8 +830,8 @@ require('lazy').setup({
 
       -- Setup mini.tabline
       require('mini.tabline').setup()
-      vim.keymap.set('n', '<leader>tn', ':bnext<cr>', { desc = 'Next tab' })
-      vim.keymap.set('n', '<leader>tp', ':bprevious<cr>', { desc = 'Next tab' })
+      vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next tab' })
+      vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Next tab' })
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -870,6 +870,15 @@ require('lazy').setup({
     keys = {
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
     },
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('toggleterm').setup()
+
+      vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<cr>', { desc = 'Open floating terminal' })
+      vim.keymap.set('n', '<leader>tb', ':ToggleTerm<cr>', { desc = 'Open terminal' })
+    end,
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
