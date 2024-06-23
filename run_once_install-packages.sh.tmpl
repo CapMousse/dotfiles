@@ -1,0 +1,12 @@
+#!/bin/sh
+
+{{ if eq .chezmoi.os "linux" -}}
+sudo apt install ripgrep curl git zsh libfuse2
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mkdir nvim.appimage ~/.local/bin/nvim
+{{ else if eq .chezmoi.os "darwin" -}}
+brew install ripgrep curl git zsh neovim
+{{ end -}}
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
