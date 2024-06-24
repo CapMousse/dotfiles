@@ -104,4 +104,11 @@ source $ZSH/oh-my-zsh.sh
 alias cd=z
 alias vim=nvim
 
+export TS_VERSION_CHECK=0
+
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/catppuccin.omp.json)"
