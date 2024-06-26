@@ -31,6 +31,7 @@ return {
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'folke/trouble.nvim',
     },
     config = function()
       -- See `:help cmp`
@@ -275,6 +276,35 @@ return {
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+        gopls = {
+          analyses = {
+            fieldalignment = true,
+            unusedparams = true,
+            unusedwrite = true,
+            nilness = true,
+            useany = true,
+          },
+          codelenses = {
+            gc_details = false,
+            generate = true,
+            regenerate_cgo = true,
+            tidy = true,
+            upgrade_dependency = true,
+            vendor = true,
+          },
+          hints = {
+            assignVariableTypes = true,
+            compositeLiteralFields = true,
+            compositeLiteralTypes = true,
+            constantValue = true,
+            functionTypeParameters = true,
+            parameterNames = true,
+            rangeVariableTypes = true,
+          },
+          gofumpt = true,
+          completeUnimported = true,
+          usePlaceholders = true,
+        },
 
         lua_ls = {
           -- cmd = {...},
