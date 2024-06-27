@@ -11,7 +11,7 @@ return {
     keys = {
       {
         '<C-n>',
-        '<cmd>Neotree filesystem toggle reveal left<cr>',
+        '<cmd>Neotree filesystem reveal left<cr>',
         desc = 'Open Neotree',
       },
     },

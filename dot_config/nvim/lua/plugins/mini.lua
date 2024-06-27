@@ -18,9 +18,7 @@ return {
       require('mini.surround').setup()
 
       -- Setup mini.tabline
-      require('mini.tabline').setup()
-      vim.keymap.set('n', '<C-w>n', ':bnext<cr>', { desc = 'Next tab' })
-      vim.keymap.set('n', '<C-w>p', ':bprevious<cr>', { desc = 'Previous tab' })
+      -- require('mini.tabline').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
