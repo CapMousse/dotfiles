@@ -15,11 +15,10 @@ return {
         desc = 'Open Neotree',
       },
     },
-    config = function()
-      vim.g.loaded_netrwPlugin = 1
-      vim.g.loaded_netrw = 1
-    end,
     opts = {
+      auto_clean_after_session_restore = true,
+      close_if_last_window = true,
+      hide_root_node = true,
       filesystem = {
         hijack_netrw_behavior = 'open_current',
       },
