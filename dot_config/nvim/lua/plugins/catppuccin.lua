@@ -12,6 +12,7 @@ return {
           cmp = true,
           treesitter = true,
           neotree = true,
+          barbar = true,
           mini = {
             enabled = true,
             indentscope_color = '',
@@ -23,7 +24,7 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'catppuccin-macchiato'
+      vim.cmd.colorscheme 'catppuccin-mocha'
     end,
   },
 }
