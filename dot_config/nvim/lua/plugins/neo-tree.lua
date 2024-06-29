@@ -8,19 +8,23 @@ return {
       'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
     },
-    keys = {
-      {
-        '<C-n>',
-        '<cmd>Neotree filesystem reveal left<cr>',
-        desc = 'Open Neotree',
-      },
-    },
     opts = {
       auto_clean_after_session_restore = true,
       close_if_last_window = true,
       hide_root_node = true,
       filesystem = {
         hijack_netrw_behavior = 'open_current',
+      },
+      window = {
+        position = 'left',
+        width = 30,
+      },
+    },
+    keys = {
+      {
+        '<C-n>',
+        '<cmd>Neotree reveal toggle filesystem<cr>',
+        desc = 'Open MiniFiles',
       },
     },
   },

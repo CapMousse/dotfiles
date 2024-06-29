@@ -6,8 +6,4 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require 'vim-options'
-require('lazy').setup('plugins', {
-  rocks = {
-    enabled = false,
-  },
-})
+require('lazy').setup 'plugins'
