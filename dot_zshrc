@@ -103,8 +103,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cd=z
 alias vim=nvim
+alias bat=batcat
 
 export TS_VERSION_CHECK=0
+export BAT_THEME="DarkNeon"
 
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH

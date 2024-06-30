@@ -1,7 +1,4 @@
 return {
-  {
-    'github/copilot.vim',
-  },
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -21,7 +18,6 @@ return {
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-copilot',
     },
     config = function()
       -- See `:help cmp`
@@ -63,7 +59,6 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'copilot' },
         },
       }
     end,
