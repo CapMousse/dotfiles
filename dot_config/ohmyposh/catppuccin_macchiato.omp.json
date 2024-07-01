@@ -6,7 +6,8 @@
         "pink": "#F5BDE6",
         "lavender": "#B7BDF8",
         "blue":  "#8AADF4",
-        "teal": "#8bd5ca"
+        "teal": "#8bd5ca",
+        "mauve": "#c6a0f6"
   },
   "blocks": [
     {
@@ -21,7 +22,7 @@
         {
           "foreground": "p:blue",
           "style": "plain",
-          "template": "{{ .UserName }}@{{ .HostName }} ",
+          "template": "{{ .UserName }} ",
           "type": "session"
         },
         {
@@ -61,10 +62,13 @@
       "type": "prompt",
       "segments": [
         {
-          "foreground": "p:teal",
+          "foreground": "p:mauve",
           "style": "plain",
-          "template": "\ue641 {{ .CurrentDate | date .Format }}",
-          "type": "time"
+          "properties": {
+            "always_enabled": true
+          },
+          "template": "\ueba2 {{ .FormattedMs }}",
+          "type": "executiontime"
         }
       ]
     },
@@ -74,8 +78,8 @@
       "segments": [
         {
           "style": "plain",
-          "foreground": "p:closer",
-          "template": "\uf105",
+          "foreground": "p:teal",
+          "template": "#",
           "type": "text"
         }
       ],
